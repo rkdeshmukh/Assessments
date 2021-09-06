@@ -1,0 +1,105 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class assessment2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\ANSS\\Downloads\\chromedriver_win32\\chromedriver.exe");
+	     WebDriver driver=new ChromeDriver();
+	    driver.manage().window().maximize();
+	     driver.get("https://www.indiatimes.com");
+	     Thread.sleep(1000);
+	     
+	     
+	  /*List<WebElement> aryList = driver.findElements(By.xpath("//div[@id='sectiontrending']/ul/li"));
+	     System.out.println(aryList.size());
+	    for(int i=0; i<=aryList.size();i++)
+	    	{
+	    	System.out.println(aryList.get(i).findElement(By.xpath("//a/span")).getText()); 
+	    
+	     
+	 for(int i=1; i<=8;i++)
+	 {	 
+	 WebElement videoLink = driver.findElement(By.xpath("//div[@id='sectiontrending']/ul/li[i]/a/span"));
+	 String menuName = videoLink.getText();
+	 System.out.println(menuName);
+	 }*/
+	     
+	   
+		 WebElement videoLink = driver.findElement(By.xpath("//div[@id='sectiontrending']/ul/li[1]/a/span"));
+		 String menuName = videoLink.getText();
+		 System.out.println(menuName);     
+	    	
+			 WebElement news = driver.findElement(By.xpath("//div[@id='sectiontrending']/ul/li[2]/a/span"));
+			 
+			 System.out.println(news.getText());     
+			 
+				
+			 WebElement technology = driver.findElement(By.xpath("//div[@id='sectiontrending']/ul/li[3]/a/span"));
+			 
+			 System.out.println(technology.getText()); 
+				
+			 WebElement explainers = driver.findElement(By.xpath("//div[@id='sectiontrending']/ul/li[4]/a/span"));
+			 
+			 System.out.println(explainers.getText());  
+				
+			 WebElement mobility  = driver.findElement(By.xpath("//div[@id='sectiontrending']/ul/li[5]/a/span"));
+			 
+			 System.out.println(mobility.getText());  
+				
+			 WebElement entertainment = driver.findElement(By.xpath("//div[@id='sectiontrending']/ul/li[6]/a/span"));
+			 
+			 System.out.println(entertainment.getText()); 
+				
+			 WebElement trending = driver.findElement(By.xpath("//div[@id='sectiontrending']/ul/li[7]/a/span"));
+			 
+			 System.out.println(trending.getText()); 
+				
+			 WebElement health = driver.findElement(By.xpath("//div[@id='sectiontrending']/ul/li[8]/a/span"));
+			 
+			 System.out.println(health.getText()); 
+	     
+	     
+	   
+			
+			 WebElement footerSection=driver.findElement(By.xpath("//div[@class='footer-container']//div[@class='grid-2']"));
+			 WebElement footerLinks = footerSection.findElement(By.xpath("//div[@class='footer-links'][3]"));
+			 List<WebElement> linksPresentInFooter = footerLinks.findElements(By.tagName("a"));
+			 System.out.println(linksPresentInFooter.size());
+			 for(int i=0; i<linksPresentInFooter.size();i++)
+			 {
+				 System.out.println(linksPresentInFooter.get(i).getAttribute("href"));
+			 }
+			 
+			 
+			 
+			 
+			 
+	     WebElement trending = driver.findElement(By.xpath("//div[@id='sectiontrending']/ul/li[7]/a/span"));
+			//WebElement trending1=driver.findElement(By.xpath("//a[@class='st-text']"));
+			 Actions a=new Actions(driver);
+		     a.moveToElement(trending).build().perform();
+		     Thread.sleep(1000);
+		     List<WebElement> newsCards = driver.findElements(By.cssSelector("div.common-card"));
+		     System.out.println(newsCards.get(22).findElement(By.xpath("//div[@class='card small-card  ']/a")).getAttribute("title"));
+		     driver.close();
+		                  
+		    
+			 
+			 
+			 
+			 
+		
+	}  
+	     
+	     
+	}
+
+
